@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Box Builder | RedCrocus Boxes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                        <span class="logo-icon">🌿</span>
+                        <span class="logo-text">RedCrocus Boxes</span>
+                    </a>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#products" class="nav-link">Products</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Custom Box Builder -->
+    <section class="custom-builder">
+        <div class="container">
+            <div class="builder-header">
+                <h1>🎨 Custom Box Builder</h1>
+                <p>Design your perfect box with custom dimensions and specifications</p>
+            </div>
+
+            <div class="builder-content">
+                <!-- Left Side - Configuration Form -->
+                <div class="builder-form">
+                    <h2>Box Specifications</h2>
+                    
+                    <!-- Dimensions -->
+                    <div class="form-section">
+                        <h3>📏 Dimensions (inches)</h3>
+                        <div class="dimension-inputs">
+                            <div class="input-group">
+                                <label for="length">Length (L)</label>
+                                <input type="number" id="length" min="6" max="48" value="18" required>
+                                <span class="unit">inches</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="width">Width (W)</label>
+                                <input type="number" id="width" min="6" max="48" value="14" required>
+                                <span class="unit">inches</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="height">Height (H)</label>
+                                <input type="number" id="height" min="4" max="36" value="12" required>
+                                <span class="unit">inches</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Material Thickness -->
+                    <div class="form-section">
+                        <h3>📦 Material Thickness (ECT Rating)</h3>
+                        <div class="thickness-options">
+                            <label class="radio-card">
+                                <input type="radio" name="thickness" value="32" checked>
+                                <div class="radio-content">
+                                    <strong>32 ECT</strong>
+                                    <span>Standard Strength</span>
+                                    <p>Good for lightweight items (up to 65 lbs)</p>
+                                    <span class="price-tag">Base Price</span>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="thickness" value="38">
+                                <div class="radio-content">
+                                    <strong>38 ECT</strong>
+                                    <span>Heavy-Duty</span>
+                                    <p>For heavier items (up to 80 lbs)</p>
+                                    <span class="price-tag">+$15</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Flute Type -->
+                    <div class="form-section">
+                        <h3>🌊 Flute Type</h3>
+                        <select id="fluteType" class="custom-select">
+                            <option value="C">C-Flute (Standard) - Best for shipping</option>
+                            <option value="B">B-Flute - Thinner, more compact</option>
+                            <option value="E">E-Flute - Die-cut friendly</option>
+                        </select>
+                    </div>
+
+                    <!-- Pack Size -->
+                    <div class="form-section">
+                        <h3>📦 Quantity</h3>
+                        <select id="packSize" class="custom-select">
+                            <option value="25">25 boxes</option>
+                            <option value="50">50 boxes (10% discount)</option>
+                            <option value="100">100 boxes (15% discount)</option>
+                            <option value="250">250 boxes (20% discount)</option>
+                            <option value="500">500 boxes (25% discount)</option>
+                        </select>
+                    </div>
+
+                    <!-- Print Options -->
+                    <div class="form-section">
+                        <h3>🎨 Printing (Optional)</h3>
+                        <select id="printing" class="custom-select">
+                            <option value="none">No Printing - Plain Brown</option>
+                            <option value="1color">1-Color Print (+$50 setup)</option>
+                            <option value="2color">2-Color Print (+$80 setup)</option>
+                            <option value="full">Full Color (+$120 setup)</option>
+                        </select>
+                    </div>
+
+                    <!-- Special Notes -->
+                    <div class="form-section">
+                        <h3>📝 Special Requirements (Optional)</h3>
+                        <textarea id="specialNotes" rows="3" placeholder="Any special requirements or notes about your custom box..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Right Side - Preview & Pricing -->
+                <div class="builder-preview">
+                    <div class="preview-card sticky-preview">
+                        <h3>📦 Box Preview</h3>
+                        <div class="box-visual">
+                            <div class="box-3d" id="box3d">
+                                <div class="box-face front">
+                                    <span class="dimension-label">Front</span>
+                                    <span id="frontDim">18" × 12"</span>
+                                </div>
+                                <div class="box-face top">
+                                    <span class="dimension-label">Top</span>
+                                    <span id="topDim">18" × 14"</span>
+                                </div>
+                                <div class="box-face right">
+                                    <span class="dimension-label">Side</span>
+                                    <span id="sideDim">14" × 12"</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spec-summary">
+                            <h4>Specifications:</h4>
+                            <ul>
+                                <li><strong>Dimensions:</strong> <span id="specDimensions">18" × 14" × 12"</span></li>
+                                <li><strong>Volume:</strong> <span id="specVolume">3,024 cubic inches</span></li>
+                                <li><strong>Material:</strong> <span id="specMaterial">32 ECT, C-Flute</span></li>
+                                <li><strong>Quantity:</strong> <span id="specQuantity">25 boxes</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="price-breakdown">
+                            <h4>Price Breakdown:</h4>
+                            <div class="price-row">
+                                <span>Base Price:</span>
+                                <span id="basePrice">$125.00</span>
+                            </div>
+                            <div class="price-row" id="thicknessUpcharge" style="display: none;">
+                                <span>Heavy-Duty Material:</span>
+                                <span>+$15.00</span>
+                            </div>
+                            <div class="price-row" id="printingCost" style="display: none;">
+                                <span>Printing Setup:</span>
+                                <span id="printPrice">+$0.00</span>
+                            </div>
+                            <div class="price-row discount-row" id="discountRow" style="display: none;">
+                                <span>Bulk Discount:</span>
+                                <span id="discountAmount">-$0.00</span>
+                            </div>
+                            <div class="price-row total-row">
+                                <span><strong>Total Price:</strong></span>
+                                <span id="totalPrice"><strong>$125.00</strong></span>
+                            </div>
+                            <div class="price-per-unit">
+                                <span>Price per box: <strong id="pricePerBox">$5.00</strong></span>
+                            </div>
+                        </div>
+
+                        <button class="btn-add-cart btn-large" id="addCustomBoxToCart">
+                            Add to Cart
+                        </button>
+
+                        <div class="production-note">
+                            <p>⏱ <strong>Production Time:</strong> 7-10 business days</p>
+                            <p>📦 Ships flat for easy storage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 RedCrocus Boxes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/custom-builder.js"></script>
+</body>
+</html>

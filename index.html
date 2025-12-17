@@ -24,7 +24,10 @@
                     <li><a href="#products" class="nav-link">Products</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="#" class="btn-primary-small">Get Quote</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a></li>
                 </ul>
                 <div class="hamburger" id="hamburger">
                     <span></span>
@@ -58,7 +61,7 @@
                     </div>
                     <div class="hero-buttons">
                         <a href="#products" class="btn-primary">Shop Now</a>
-                        <a href="#contact" class="btn-secondary">Request Custom Quote</a>
+                        <a href="custom-box.html" class="btn-secondary">Build Custom Box</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -104,7 +107,7 @@
             </div>
             <div class="products-grid">
                 <!-- Product 1 -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="1">
                     <div class="product-image">
                         <div class="image-placeholder small">
                             <div class="placeholder-icon">📦</div>
@@ -113,13 +116,21 @@
                     <div class="product-info">
                         <h3 class="product-name">Small Shipping Box</h3>
                         <p class="product-dimensions">12" × 9" × 6"</p>
-                        <p class="product-price">Starting at <span>$65</span></p>
-                        <button class="btn-product">View Details</button>
+                        <div class="pack-selector">
+                            <label>Pack Size:</label>
+                            <select class="pack-size">
+                                <option value="25" data-price="65">25-pack - $65</option>
+                                <option value="50" data-price="115">50-pack - $115</option>
+                                <option value="100" data-price="210">100-pack - $210</option>
+                            </select>
+                        </div>
+                        <p class="product-price">Price: <span class="price-value">$65.00</span></p>
+                        <button class="btn-add-cart" onclick="addToCart(1, 'Small Shipping Box', '12x9x6')">Add to Cart</button>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="2">
                     <div class="product-image">
                         <div class="image-placeholder small">
                             <div class="placeholder-icon">📦</div>
@@ -128,13 +139,21 @@
                     <div class="product-info">
                         <h3 class="product-name">Medium Shipping Box</h3>
                         <p class="product-dimensions">18" × 14" × 12"</p>
-                        <p class="product-price">Starting at <span>$95</span></p>
-                        <button class="btn-product">View Details</button>
+                        <div class="pack-selector">
+                            <label>Pack Size:</label>
+                            <select class="pack-size">
+                                <option value="25" data-price="95">25-pack - $95</option>
+                                <option value="50" data-price="170">50-pack - $170</option>
+                                <option value="100" data-price="320">100-pack - $320</option>
+                            </select>
+                        </div>
+                        <p class="product-price">Price: <span class="price-value">$95.00</span></p>
+                        <button class="btn-add-cart" onclick="addToCart(2, 'Medium Shipping Box', '18x14x12')">Add to Cart</button>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="3">
                     <div class="product-image">
                         <div class="image-placeholder small">
                             <div class="placeholder-icon">📦</div>
@@ -143,13 +162,21 @@
                     <div class="product-info">
                         <h3 class="product-name">Large Shipping Box</h3>
                         <p class="product-dimensions">24" × 18" × 14"</p>
-                        <p class="product-price">Starting at <span>$125</span></p>
-                        <button class="btn-product">View Details</button>
+                        <div class="pack-selector">
+                            <label>Pack Size:</label>
+                            <select class="pack-size">
+                                <option value="25" data-price="125">25-pack - $125</option>
+                                <option value="50" data-price="225">50-pack - $225</option>
+                                <option value="100" data-price="420">100-pack - $420</option>
+                            </select>
+                        </div>
+                        <p class="product-price">Price: <span class="price-value">$125.00</span></p>
+                        <button class="btn-add-cart" onclick="addToCart(3, 'Large Shipping Box', '24x18x14')">Add to Cart</button>
                     </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="4">
                     <div class="product-image">
                         <div class="image-placeholder small">
                             <div class="placeholder-icon">📦</div>
@@ -158,13 +185,21 @@
                     <div class="product-info">
                         <h3 class="product-name">Heavy-Duty Box</h3>
                         <p class="product-dimensions">20" × 20" × 16"</p>
-                        <p class="product-price">Starting at <span>$145</span></p>
-                        <button class="btn-product">View Details</button>
+                        <div class="pack-selector">
+                            <label>Pack Size:</label>
+                            <select class="pack-size">
+                                <option value="25" data-price="145">25-pack - $145</option>
+                                <option value="50" data-price="260">50-pack - $260</option>
+                                <option value="100" data-price="490">100-pack - $490</option>
+                            </select>
+                        </div>
+                        <p class="product-price">Price: <span class="price-value">$145.00</span></p>
+                        <button class="btn-add-cart" onclick="addToCart(4, 'Heavy-Duty Box', '20x20x16')">Add to Cart</button>
                     </div>
                 </div>
 
                 <!-- Product 5 -->
-                <div class="product-card">
+                <div class="product-card" data-product-id="5">
                     <div class="product-image">
                         <div class="image-placeholder small">
                             <div class="placeholder-icon">📦</div>
@@ -173,23 +208,31 @@
                     <div class="product-info">
                         <h3 class="product-name">X-Large Storage Box</h3>
                         <p class="product-dimensions">30" × 20" × 18"</p>
-                        <p class="product-price">Starting at <span>$175</span></p>
-                        <button class="btn-product">View Details</button>
+                        <div class="pack-selector">
+                            <label>Pack Size:</label>
+                            <select class="pack-size">
+                                <option value="25" data-price="175">25-pack - $175</option>
+                                <option value="50" data-price="315">50-pack - $315</option>
+                                <option value="100" data-price="590">100-pack - $590</option>
+                            </select>
+                        </div>
+                        <p class="product-price">Price: <span class="price-value">$175.00</span></p>
+                        <button class="btn-add-cart" onclick="addToCart(5, 'X-Large Storage Box', '30x20x18')">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product 6 -->
-                <div class="product-card">
+                <!-- Product 6 - Custom -->
+                <div class="product-card custom-card">
                     <div class="product-image">
                         <div class="image-placeholder small">
-                            <div class="placeholder-icon">📦</div>
+                            <div class="placeholder-icon">⚙️</div>
                         </div>
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Custom Size Box</h3>
                         <p class="product-dimensions">Your Dimensions</p>
-                        <p class="product-price">Contact for <span>Quote</span></p>
-                        <button class="btn-product">Request Quote</button>
+                        <p class="product-price">Build Your Own</p>
+                        <a href="custom-box.html" class="btn-add-cart">Configure Custom Box</a>
                     </div>
                 </div>
             </div>
@@ -237,7 +280,7 @@
             <div class="cta-content">
                 <h2>Need Custom Boxes?</h2>
                 <p>Get a personalized quote for your specific requirements. We can manufacture any size!</p>
-                <a href="#contact" class="btn-primary-large">Request Custom Quote</a>
+                <a href="custom-box.html" class="btn-primary-large">Build Custom Box</a>
             </div>
         </div>
     </section>
@@ -324,10 +367,10 @@
                 <div class="footer-section">
                     <h4>Products</h4>
                     <ul>
-                        <li><a href="#">Small Boxes</a></li>
-                        <li><a href="#">Medium Boxes</a></li>
-                        <li><a href="#">Large Boxes</a></li>
-                        <li><a href="#">Custom Sizes</a></li>
+                        <li><a href="#products">Small Boxes</a></li>
+                        <li><a href="#products">Medium Boxes</a></li>
+                        <li><a href="#products">Large Boxes</a></li>
+                        <li><a href="custom-box.html">Custom Sizes</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
